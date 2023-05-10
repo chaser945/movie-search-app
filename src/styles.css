@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+:root {
+  --darkBlack: #16141f;
+  --lightBlack: #211f30;
+  --grayFont: #bcbcbc;
+  --orange: #ef2d1a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--darkBlack);
+  font-family: "Lato", sans-serif;
+  color: white;
+  margin: 0;
+}
+
+::placeholder {
+  color: var(--grayFont);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: var(--grayFont);
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--grayFont);
+}
+
+h1 {
+  margin-top: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* HEADER */
+/* ======= */
+
+.header {
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* HOME PAGE */
+/* ========== */
+
+.homepage-wrapper {
+  padding: 2em 1em;
+}
+
+.movie-form {
+  display: flex;
+  gap: 1em;
+}
+
+.search-input {
+  font-family: inherit;
+  font-weight: 500;
+  padding: 1em;
+  border-radius: 20px;
+  background-color: var(--lightBlack);
+  border: none;
+  color: white;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.btn {
+  font-family: inherit;
+  font-weight: bold;
+  border: none;
+  padding: 1em 1.5em;
+}
+
+.submit-btn {
+  color: white;
+  border-radius: 20px;
+  background-color: var(--orange);
+  align-self: flex-start;
+  transition: all ease 250ms;
+}
+
+.submit-btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.popular-movies,
+.search-results {
+  color: #ff8f71;
+  text-align: center;
+}
+
+.movies-link {
+  width: 45%;
+}
+
+/* MOVIE GALLERY */
+/* ============= */
+
+.movie-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+}
+
+/* MOVIE CARD */
+/* ========== */
+
+.movie-card {
+  width: 100%;
+}
+
+.movie-card-img {
+  border-radius: 10px;
+}
+
+.movie-title {
+  font-size: 0.8rem;
+}
+
+.movie-release-date {
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+/* MOVIE DETAILS  */
+/* ============== */
+
+.movie-details-header {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.movie-details-content {
+  padding: 0 1em;
+}
+
+.movie-details-rating {
+  margin-left: 0.4em;
+  word-spacing: 2px;
+}
+
+.rating-wrapper,
+.release-date-span {
+  color: var(--grayFont);
+}
+
+.rating-wrapper {
+  margin-bottom: 1.3em;
+}
+
+.release-date-h3 {
+  margin-bottom: 0.5em;
+}
+
+.synopsis {
+  margin-bottom: 0;
+}
+
+.synopsis-p {
+  margin-top: 0.5em;
+  color: var(--grayFont);
+}

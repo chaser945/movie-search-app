@@ -30,9 +30,9 @@ export default function HomePage() {
 
   const handleChange = (event) => {
     const { value } = event.target;
-    const valueCleaned = value.replace(/\s/g, "+");
+    // const valueCleaned = value.replace(/\s/g, "+");
     // console.log(valueCleaned)
-    setMovieQuery(valueCleaned);
+    setMovieQuery(value);
   };
 
   const handleSubmit = async (event) => {

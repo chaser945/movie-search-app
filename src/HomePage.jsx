@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import MovieCard from "./MovieCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
 import Header from "./Header";
 
 export default function HomePage() {
@@ -50,12 +49,12 @@ export default function HomePage() {
   return (
     <div className="homepage-wrapper">
       <Header getPopularMovies={getPopularMovies} />
-      <h1></h1>
       <form className="movie-form" onSubmit={handleSubmit}>
         <input
           className="search-input"
           name="movieName"
           id="movieName"
+          value={movieQuery}
           placeholder="e.g: The Godfather"
           type="text"
           onChange={handleChange}
@@ -65,6 +64,10 @@ export default function HomePage() {
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </form>
+
+      {/* Network error */}
+      {movieResultArr.length <= 0 ? <h1>Loading...</h1> : null}
+
       {showPopular ? (
         <p className="popular-movies">Popular Movies</p>
       ) : (
@@ -74,14 +77,7 @@ export default function HomePage() {
         {movieResultArr
           .filter((movie) => movie.poster_path)
           .map((movie) => (
-            <Link
-              className="movies-link"
-              to={`/${movie.id}`}
-              key={movie.id}
-              state={movieResultArr}
-            >
-              <MovieCard data={movie} />
-            </Link>
+            <MovieCard data={movie} key={movie.id} />
           ))}
       </div>
     </div>

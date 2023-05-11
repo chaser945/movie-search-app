@@ -35,6 +35,11 @@ body {
 
 h1 {
   margin-top: 0;
+  letter-spacing: 2px;
+}
+
+p {
+  line-height: 1.6;
 }
 
 img {
@@ -104,10 +109,7 @@ a {
 .search-results {
   color: #ff8f71;
   text-align: center;
-}
-
-.movies-link {
-  width: 45%;
+  letter-spacing: 2px;
 }
 
 /* MOVIE GALLERY */
@@ -124,7 +126,8 @@ a {
 /* ========== */
 
 .movie-card {
-  width: 100%;
+  width: 45%;
+  max-width: 400px;
 }
 
 .movie-card-img {
@@ -133,6 +136,7 @@ a {
 
 .movie-title {
   font-size: 0.8rem;
+  letter-spacing: 1px;
 }
 
 .movie-release-date {
@@ -178,4 +182,49 @@ a {
 .synopsis-p {
   margin-top: 0.5em;
   color: var(--grayFont);
+}
+
+@media (min-width: 426px) {
+  .header {
+    font-size: 2rem;
+  }
+
+  /* Search Input */
+
+  .search-input {
+    font-size: 1.3rem;
+  }
+
+  .submit-btn {
+    padding: 1.8em;
+  }
+
+  .popular-movies,
+  .search-results {
+    font-size: 2rem;
+    letter-spacing: 3px;
+  }
+
+  /* Movie Gallery */
+
+  .movie-gallery {
+    gap: 2em;
+  }
+
+  .movie-title {
+    font-size: 1.3rem;
+  }
+
+  .movie-release-date {
+    font-size: 1rem;
+  }
+
+  .movie-details-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .movie-details-img {
+    border-radius: 10px;
+  }
 }

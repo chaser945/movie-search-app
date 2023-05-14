@@ -4,28 +4,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Header from "./Header";
 
+import { getPopularMovies } from "./api";
+import { useLoaderData } from "react-router-dom";
+
+export function loader() {
+  return getPopularMovies();
+}
+
 export default function HomePage() {
-  console.log("homepage rendered");
+  // console.log("homepage rendered");
+
+  const loaderData = useLoaderData();
 
   const [movieQuery, setMovieQuery] = useState("");
   const [movieResultArr, setMovieResultArr] = useState([]);
   const [showPopular, setShowPopular] = useState(true);
 
-  const getPopularMovies = () => {
-    fetch(
-      "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=6af31bc37cbb2436640ecaf1e1265fdc"
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setShowPopular(true);
-        // console.log(data.results);
-        setMovieResultArr(data.results);
-      })
-      .catch((error) => console.error(error));
-  };
-
   React.useEffect(() => {
-    getPopularMovies();
+    setMovieResultArr(loaderData.results);
   }, []);
 
   const handleChange = (event) => {

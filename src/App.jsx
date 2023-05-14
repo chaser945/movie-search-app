@@ -3,17 +3,27 @@ import HomePage from "./HomePage";
 import MovieDetails from "./MovieDetails";
 
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
+
+import { loader as homePageLoader } from "./HomePage";
 
 export default function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/">
+        <Route index element={<HomePage />} loader={homePageLoader} />
+        <Route path="/:id" element={<MovieDetails />} />
+      </Route>
+    )
+  );
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/:id" element={<MovieDetails />} />
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </div>
   );
 }

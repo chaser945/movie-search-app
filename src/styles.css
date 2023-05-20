@@ -5,6 +5,7 @@
   --lightBlack: #211f30;
   --grayFont: #bcbcbc;
   --orange: #ef2d1a;
+  --purple: #a500ff;
 }
 
 * {
@@ -56,9 +57,10 @@ a {
 /* ======= */
 
 .header {
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 700;
   cursor: pointer;
+  color: var(--orange);
 }
 
 /* HOME PAGE */
@@ -103,6 +105,33 @@ a {
 .submit-btn:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+
+/* filter div */
+
+.filters-div {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.filter-btn {
+  font-family: inherit;
+  padding: 1em;
+  background-color: var(--lightBlack);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.filter-btn:hover {
+  background-color: white;
+  /* border: 1px solid var(--purple); */
+  color: black;
 }
 
 .popular-movies,

@@ -5,7 +5,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Header from "./Header";
 
 import { getPopularMovies } from "./api";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, NavLink } from "react-router-dom";
 
 export function loader() {
   return getPopularMovies();
@@ -22,6 +22,12 @@ export default function HomePage() {
 
   React.useEffect(() => {
     setMovieResultArr(loaderData.results);
+
+    fetch(
+      "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&api_key=6af31bc37cbb2436640ecaf1e1265fdc"
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   }, []);
 
   const handleChange = (event) => {
@@ -61,6 +67,13 @@ export default function HomePage() {
         </button>
       </form>
 
+      <NavLink className="filters-div">
+        <button className="filter-btn">Popular</button>
+        <button className="filter-btn">Now Playing</button>
+        <button className="filter-btn">Top Rated</button>
+        <button className="filter-btn">Upcoming</button>
+      </NavLink>
+
       {/* Network error */}
       {movieResultArr.length <= 0 ? <h1>Loading...</h1> : null}
 
@@ -69,6 +82,7 @@ export default function HomePage() {
       ) : (
         <p className="search-results">Search Results</p>
       )}
+
       <div className="movie-gallery">
         {movieResultArr
           .filter((movie) => movie.poster_path)
